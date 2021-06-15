@@ -6,7 +6,9 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookListItemComponent } from './book-list-item/book-list-item.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { HomeComponent } from './home/home.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
+import { SearchComponent } from './search/search.component';
+import {httpInterceptors} from "./http-interceptors";
 
 @NgModule({
   declarations: [
@@ -14,14 +16,15 @@ import {HttpClientModule} from "@angular/common/http";
     BookListComponent,
     BookListItemComponent,
     BookDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [...httpInterceptors],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
