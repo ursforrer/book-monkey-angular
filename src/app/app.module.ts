@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,11 @@ import { BookFormComponent } from './book-form/book-form.component';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { FormMessageComponent } from './form-message/form-message.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
+import {registerLocaleData} from "@angular/common";
+import localDe from '@angular/common/locales/de';
+import { IsbnPipe } from './shared/isbn.pipe';
+import { ZoomDirective } from './shared/zoom.directive';
+import { DelayDirective } from './shared/delay.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,10 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     BookFormComponent,
     CreateBookComponent,
     FormMessageComponent,
-    EditBookComponent
+    EditBookComponent,
+    IsbnPipe,
+    ZoomDirective,
+    DelayDirective,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +44,13 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     DateValueAccessorModule,
     ReactiveFormsModule
   ],
-  providers: [...httpInterceptors],
+  providers: [...httpInterceptors,
+    { provide: LOCALE_ID, useValue: 'de'}
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+   registerLocaleData(localDe);
+  }
+}

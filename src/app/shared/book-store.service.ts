@@ -39,6 +39,14 @@ export class BookStoreService {
     );
   }
 
+  check(isbn : string) : Observable<any> {
+    return this.http.get<BookRaw>(
+      `${this.api}/book/${isbn}/check`
+    ).pipe(
+      catchError(this.errorHandler)
+    );
+  }
+
   getAll(): Observable<Book[]> {
     return this.http.get<BookRaw[]>(`${this.api}/books`).pipe(
       map(booksRaw =>
