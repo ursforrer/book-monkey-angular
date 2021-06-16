@@ -21,6 +21,24 @@ export class BookStoreService {
     return throwError(error);
   }
 
+  create(book: Book) : Observable<any> {
+    return this.http.post(
+      `${this.api}/book`, book, { responseType: "text"}
+    ).pipe(
+      catchError(this.errorHandler)
+    );
+  }
+
+  update(book: Book) : Observable<any> {
+    return this.http.put(
+      `${this.api}/book/${book.isbn}`,
+      book,
+      { responseType: "text" }
+    ).pipe(
+      catchError(this.errorHandler)
+    );
+  }
+
   getAll(): Observable<Book[]> {
     return this.http.get<BookRaw[]>(`${this.api}/books`).pipe(
       map(booksRaw =>
