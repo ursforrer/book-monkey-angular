@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AbstractControl, AsyncValidator, ValidationErrors} from "@angular/forms";
-import {BookStoreService} from "./book-store.service";
+import {BookStoreService} from "../../shared/book-store.service";
 import {Observable, of} from "rxjs";
 import {catchError, map} from "rxjs/operators";
 
