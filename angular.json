@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "book-monkey-angular"
+  "defaultProject": "book-monkey-angular",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

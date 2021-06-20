@@ -7,6 +7,11 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import { SearchComponent } from './search/search.component';
 import {httpInterceptors} from "./http-interceptors";
 import {SettingsInitializerService} from "./shared/settings-initializer.service";
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -18,6 +23,10 @@ import {SettingsInitializerService} from "./shared/settings-initializer.service"
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [...httpInterceptors,
     {

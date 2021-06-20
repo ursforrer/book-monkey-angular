@@ -1,8 +1,9 @@
 import {EventEmitter, Output} from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import {Book} from "../../shared/book";
-import {BookStoreService} from "../../shared/book-store.service";
-import {Observable} from "rxjs";
+import {select, Store} from "@ngrx/store";
+import {loadBooks} from "../store/book.actions";
+import {selectAllBooks, selectBooksLoading} from "../store/book.selectors";
 
 @Component({
   selector: 'bm-book-list',
@@ -10,13 +11,14 @@ import {Observable} from "rxjs";
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
-  books$: Observable<Book[]>;
+  books$ = this.store.pipe(select(selectAllBooks));
+  loading$ = this.store.pipe(select(selectBooksLoading));
   @Output() showDetailsEvent = new EventEmitter<Book>();
 
-  constructor(private bs: BookStoreService) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.books$ = this.bs.getAll();
+    this.store.dispatch(loadBooks());
   }
 
   showDetails(book : Book) {
