@@ -9,7 +9,9 @@
     "test": "ng test",
     "start-en": "ng serve --configuration=en",
     "build-en": "ng build --configuration=production,en",
-    "extract-i18n": "ng-xi18n --format=xmb --outpath-path=src"
+    "extract-i18n": "ng-xi18n --format=xmb --outpath-path=src",
+    "docker:build": "docker build -t book-monkey-angular .",
+    "docker:re-deploy": "docker-compose down --remove-orphans && docker-compose up -d"
   },
   "private": true,
   "dependencies": {

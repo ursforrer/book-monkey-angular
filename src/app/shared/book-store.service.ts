@@ -6,13 +6,16 @@ import {BookRaw} from "./book-raw";
 import {BookFactory} from "./book-factory";
 import {catchError, map, retry} from "rxjs/operators";
 import {API_URL} from "../../tokens";
+import {SettingsService} from "./settings.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookStoreService {
-  constructor(private http: HttpClient, @Inject(API_URL) private api: string) {
-      console.log(this.api);
+  private readonly api: string;
+
+  constructor(private http: HttpClient, private settingsService: SettingsService) {
+     this.api = this.settingsService.settings.apiUrl;
   }
 
   private errorHandler(error: HttpErrorResponse) : Observable<any> {
