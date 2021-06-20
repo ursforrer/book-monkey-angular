@@ -1,46 +1,46 @@
 <form class="ui form" [formGroup]="bookForm" (ngSubmit)="submitForm()">
 
-  <label>Buchtitel</label>
+  <label i18n="@@BookFormComponent:book title">Buchtitel</label>
   <input formControlName="title">
   <bm-form-message [control]="bookForm.get('title')" controlName="title"></bm-form-message>
 
-  <label>Untertitel</label>
+  <label i18n="@@BookFormComponent:book subtitle">Untertitel</label>
   <input formControlName="subtitle" >
 
-  <label>ISBN</label>
+  <label i18n="@@BookFormComponent:book isbn">ISBN</label>
   <input formControlName="isbn" >
   <bm-form-message [control]="bookForm.get('isbn')" controlName="isbn"></bm-form-message>
 
-  <label>Erscheinungsdatum</label>
+  <label i18n="@@BookFormComponent:book published date">Erscheinungsdatum</label>
   <input type="date" formControlName="published" useValueAsDate >
   <bm-form-message [control]="bookForm.get('published')" controlName="published"></bm-form-message>
 
-  <label>Autor</label>
-  <button type="button" class="ui mini button" (click)="addAuthorControl()">+ Author</button>
+  <label i18n="@@BookFormComponent:book authors">Autor</label>
+  <button type="button" class="ui mini button" (click)="addAuthorControl()" i18n="@@BookFormComponent:add author">+ Author</button>
   <div class="fields" formArrayName="authors">
     <div class="sixteen wide field" *ngFor="let c of authors.controls; index as i">
-      <input placeholder="Autor" [formControlName]="i">
+      <input i18n-placeholder="@@BookFormComponent:author placeholder" placeholder="Autor" [formControlName]="i">
     </div>
   </div>
   <bm-form-message [control]="bookForm.get('authors')" controlName="authors"></bm-form-message>
 
-  <label>Beschreibung</label>
+  <label i18n="@@BookFormComponent:book description">Beschreibung</label>
   <textarea formControlName="description"></textarea>
 
-  <label>Bild</label>
-  <button type="button" class="ui mini button" (click)="addThumbnailControl()">+ Bild</button>
+  <label i18n="@@BookFormComponent:book image">Bild</label>
+  <button type="button" class="ui mini button" (click)="addThumbnailControl()" i18n="@@BookFormComponent:add image">+ Bild</button>
   <div formArrayName="thumbnails">
     <div class="fields" *ngFor="let c of thumbnails.controls; index as i" [formGroupName]="i">
       <div class="nine wide field">
-        <input placeholder="URL" formControlName="url">
+        <input i18n-placeholder="@@BookFormComponent:book url placeholder" placeholder="URL" formControlName="url">
       </div>
       <div class="seven wide field">
-        <input placeholder="Titel" formControlName="title">
+        <input i18n-placeholder="@@BookFormComponent:book title placeholder" placeholder="Titel" formControlName="title">
       </div>
     </div>
   </div>
 
-  <button class="ui button" type="submit" [disabled]="bookForm.invalid">
+  <button class="ui button" type="submit" [disabled]="bookForm.invalid" i18n="@@BookFormComponent:book form save">
     Speichern
   </button>
 </form>

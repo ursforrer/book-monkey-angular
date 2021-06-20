@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE messagebundle [
+<!ELEMENT messagebundle (msg)*>
+<!ATTLIST messagebundle class CDATA #IMPLIED>
+
+<!ELEMENT msg (#PCDATA|ph|source)*>
+<!ATTLIST msg id CDATA #IMPLIED>
+<!ATTLIST msg seq CDATA #IMPLIED>
+<!ATTLIST msg name CDATA #IMPLIED>
+<!ATTLIST msg desc CDATA #IMPLIED>
+<!ATTLIST msg meaning CDATA #IMPLIED>
+<!ATTLIST msg obsolete (obsolete) #IMPLIED>
+<!ATTLIST msg xml:space (default|preserve) "default">
+<!ATTLIST msg is_hidden CDATA #IMPLIED>
+
+<!ELEMENT source (#PCDATA)>
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<messagebundle>
+  <msg id="BookFormComponent:book title"><source>src/app/admin/book-form/book-form.component.html:2</source>Buchtitel</msg>
+  <msg id="BookFormComponent:book subtitle"><source>src/app/admin/book-form/book-form.component.html:6</source>Untertitel</msg>
+  <msg id="BookFormComponent:book isbn"><source>src/app/admin/book-form/book-form.component.html:9</source>ISBN</msg>
+  <msg id="BookFormComponent:book published date"><source>src/app/admin/book-form/book-form.component.html:13</source>Erscheinungsdatum</msg>
+  <msg id="BookFormComponent:book authors"><source>src/app/admin/book-form/book-form.component.html:17</source>Autor</msg>
+  <msg id="BookFormComponent:add author"><source>src/app/admin/book-form/book-form.component.html:18</source>+ Author</msg>
+  <msg id="BookFormComponent:author placeholder"><source>src/app/admin/book-form/book-form.component.html:21</source>Autor</msg>
+  <msg id="BookFormComponent:book description"><source>src/app/admin/book-form/book-form.component.html:26</source>Beschreibung</msg>
+  <msg id="BookFormComponent:book image"><source>src/app/admin/book-form/book-form.component.html:29</source>Bild</msg>
+  <msg id="BookFormComponent:add image"><source>src/app/admin/book-form/book-form.component.html:30</source>+ Bild</msg>
+  <msg id="BookFormComponent:book url placeholder"><source>src/app/admin/book-form/book-form.component.html:34</source>URL</msg>
+  <msg id="BookFormComponent:book title placeholder"><source>src/app/admin/book-form/book-form.component.html:37</source>Titel</msg>
+  <msg id="BookFormComponent:book form save"><source>src/app/admin/book-form/book-form.component.html:43,45</source> Speichern </msg>
+  <msg id="CreateBookComponent:title"><source>src/app/admin/create-book/create-book.component.html:0</source>Buch hinzufügen</msg>
+  <msg id="EditBookComponent:title"><source>src/app/admin/edit-book/edit-book.component.html:0</source>Buch bearbeiten</msg>
+  <msg id="AppComponent:home"><source>src/app/app.component.html:1</source>Home</msg>
+  <msg id="AppComponent:books"><source>src/app/app.component.html:2</source>Bücher</msg>
+  <msg id="AppComponent:admin"><source>src/app/app.component.html:3</source>Administration</msg>
+  <msg id="BookDetailsComponent:book authors"><source>src/app/books/book-details/book-details.component.html:6</source>Autoren</msg>
+  <msg id="BookDetailsComponent:book isbn"><source>src/app/books/book-details/book-details.component.html:12</source>ISBN</msg>
+  <msg id="BookDetailsComponent:book published date"><source>src/app/books/book-details/book-details.component.html:16</source>Erschienen</msg>
+  <msg id="BookDetailsComponent:book rating"><source>src/app/books/book-details/book-details.component.html:20</source>Rating</msg>
+  <msg id="BookDetailsComponent:book description"><source>src/app/books/book-details/book-details.component.html:26</source>Beschreibung</msg>
+  <msg id="BookDetailsComponent:book delete"><source>src/app/books/book-details/book-details.component.html:32</source>Buch löschen</msg>
+  <msg id="BookDetailsComponent:book edit"><source>src/app/books/book-details/book-details.component.html:35</source>Buch bearbeiten</msg>
+  <msg id="BookListComponent:no books"><source>src/app/books/book-list/book-list.component.html:3,7</source>Es wurden noch keine Bücher eingetragen.</msg>
+  <msg id="BookListComponent:loading data"><source>src/app/books/book-list/book-list.component.html:8,12</source>Daten werden geladen...</msg>
+  <msg id="CanNavigateToAdminGuard:question"><source>src/app/can-navigate-to-admin.guard.ts:14</source>Mit großer Macht kommt große Verantwortung. Möchten Sie den Admin-Bereich betreten?</msg>
+  <msg id="HomeComponent:header"><source>src/app/home/home.component.html:0</source>Home</msg>
+  <msg id="HomeComponent:tagline" desc="a proud sentence about the project"><source>src/app/home/home.component.html:1</source>Das ist der BookMonkey.</msg>
+  <msg id="HomeComponent:book list link" desc="Text of the link to the books"><source>src/app/home/home.component.html:4,6</source> Buchiste ansehen </msg>
+  <msg id="HomeComponent:search"><source>src/app/home/home.component.html:9</source>Suche</msg>
+</messagebundle>

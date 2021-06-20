@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start-en": "ng serve --configuration=en",
+    "build-en": "ng build --configuration=production,en",
+    "extract-i18n": "ng-xi18n --format=xmb --outpath-path=src"
   },
   "private": true,
   "dependencies": {
@@ -28,8 +31,11 @@
     "@angular-devkit/build-angular": "~12.0.1",
     "@angular/cli": "~12.0.1",
     "@angular/compiler-cli": "~12.0.1",
+    "@angular/localize": "^12.0.1",
+    "@ngx-builders/analyze": "^2.3.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "angular-cli-ghpages": "^1.0.0-rc.2",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

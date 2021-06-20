@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {Book} from "./book";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Observable, throwError} from 'rxjs';
 import {BookRaw} from "./book-raw";
 import {BookFactory} from "./book-factory";
 import {catchError, map, retry} from "rxjs/operators";
+import {API_URL} from "../../tokens";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookStoreService {
-  private api = 'https://api4.angular-buch.com/secure';
-
-  constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient, @Inject(API_URL) private api: string) {
+      console.log(this.api);
   }
 
   private errorHandler(error: HttpErrorResponse) : Observable<any> {

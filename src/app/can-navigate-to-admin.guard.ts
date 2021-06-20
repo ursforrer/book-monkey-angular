@@ -12,7 +12,8 @@ export class CanNavigateToAdminGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!this.accessGranted) {
-      this.accessGranted = window.confirm('Mit grosser Macht kommt grosse Verantwortung. Möchten Sie den Admin-Bereich betreten?');
+      const question = $localize`:@@CanNavigateToAdminGuard\:question:Mit großer Macht kommt große Verantwortung. Möchten Sie den Admin-Bereich betreten?`;
+      this.accessGranted = window.confirm(question);
     }
     return this.accessGranted;
   }
